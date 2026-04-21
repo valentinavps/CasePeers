@@ -239,6 +239,6 @@ O dashboard foi desenvolvido com base nos CSVs gerados:
 
 ---
 
-# 👨‍💻 Autor
+# 👨‍💻 Autora
 
 Valentina Perpetuo dos Santos
