@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 from data_treatment import load_and_clean_all
 
 # =========================================================
@@ -96,7 +97,11 @@ df_vendas = df_vendas[[
 # EXPORTAÇÃO DA FACT TABLE
 # =========================================================
 # Guarda o dataset pronto para análise
-df_vendas.to_csv("fact_vendas.csv", index=False)
+# criar pasta se não existir
+os.makedirs("Fact Tables", exist_ok=True)
+
+# guardar ficheiro dentro da pasta
+df_vendas.to_csv("Fact Tables/fact_vendas.csv", index=False)
 
 print("FACT TABLE criada com sucesso: fact_vendas.csv")
 
@@ -154,7 +159,11 @@ df_fact_tickets = df_ticket_produto[[
     'status'
 ]]
 
-df_fact_tickets.to_csv("fact_tickets.csv", index=False)
+# criar pasta se não existir
+os.makedirs("Fact Tables", exist_ok=True)
+
+# guardar ficheiro dentro da pasta
+df_fact_tickets.to_csv("Fact Tables/fact_tickets.csv", index=False)
 print("FACT TABLE de Tickets criada com sucesso: fact_tickets.csv")
 
 # =========================================================
@@ -192,5 +201,9 @@ df_fact_avaliacoes = df_avaliacoes_full[[
     'data_avaliacao'
 ]]
 
-df_fact_avaliacoes.to_csv("fact_avaliacoes.csv", index=False)
+# criar pasta se não existir
+os.makedirs("Fact Tables", exist_ok=True)
+
+# guardar ficheiro dentro da pasta
+df_fact_avaliacoes.to_csv("Fact Tables/fact_avaliacoes.csv", index=False)
 print("FACT TABLE de Avaliações criada com sucesso: fact_avaliacoes.csv")

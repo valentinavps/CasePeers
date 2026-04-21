@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from scipy import stats
 import matplotlib.pyplot as plt
@@ -8,9 +9,11 @@ df_clientes, df_pedidos, df_itens, df_produtos, df_avaliacoes, df_tickets = load
 # CARREGAMENTO DA FACT TABLE
 # =========================================================
 # Lê a fact table gerada no pipeline de construção
-df_vendas = pd.read_csv("fact_vendas.csv")
-df_avaliacoes= pd.read_csv("fact_avaliacoes.csv")
-df_tickets = pd.read_csv("fact_tickets.csv")
+base_path = "Fact Tables"
+
+df_vendas = pd.read_csv(os.path.join(base_path, "fact_vendas.csv"))
+df_avaliacoes = pd.read_csv(os.path.join(base_path, "fact_avaliacoes.csv"))
+df_tickets = pd.read_csv(os.path.join(base_path, "fact_tickets.csv"))
 
 # Conversão de datas para formato datetime
 df_vendas['data_pedido'] = pd.to_datetime(df_vendas['data_pedido'])
